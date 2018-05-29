@@ -1,0 +1,14 @@
+version: '3'
+services:
+  kurento-nodejs-one2many:
+    environment:
+      - KURENTO_MEDIA_SERVER_HOST
+      - KURENTO_MEDIA_SERVER_PORT
+    build:
+      context: ./nodejs-one2many
+    ports:
+      - ${KURENTO_NODEJS_ONE2MANY_SERVER_PORT}:8443
+  kurento-media-server:
+    image: "kurento/kurento-media-server:xenial-latest"
+    ports:
+      - ${KURENTO_MEDIA_SERVER_PORT}:8888
